@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Beauty & Skincare - Blog</title>
+    <style>
+        :root {
+            --primary-pink: #FFB6C1;
+            --light-pink: #FFF0F5;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .dashboard-card {
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        
+        .blog-post-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-post-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-post-card .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .blog-category-badge {
+            background: var(--primary-pink);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .comment-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .comment-item {
+            border-left: 3px solid var(--primary-pink);
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-spa me-2"></i>Beauty & Skincare Manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html"><i class="fas fa-home me-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="routine.html"><i class="fas fa-calendar me-1"></i>Routines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html"><i class="fas fa-shopping-bag me-1"></i>Products</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="blog.html"><i class="fas fa-blog me-1"></i>Blog</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i>Sarah
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-4">
+        <!-- Page Header -->
+        <div class="dashboard-card card mb-4">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h4 class="mb-1">Skincare Blog</h4>
+                    <p class="text-muted mb-0">Learn, share, and discuss skincare tips and experiences</p>
+                </div>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createPostModal">
+                    <i class="fas fa-plus me-2"></i>Create Post
+                </button>
+            </div>
+        </div>
+
+        <!-- Blog Posts -->
+        <div class="row">
+            <!-- Featured Post -->
+            <div class="col-12 mb-4">
+                <div class="card blog-post-card">
+                    <img src="/api/placeholder/1200/400" class="card-img-top" alt="Featured Blog Post">
+                    <div class="card-body">
+                        <span class="blog-category-badge">Skincare 101</span>
+                        <h3 class="card-title mt-2">Ultimate Guide to Building Your Perfect Skincare Routine</h3>
+                        <p class="card-text">Discover the step-by-step process to create a personalized skincare routine that works for your unique skin type and concerns.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="/api/placeholder/40/40" class="rounded-circle me-2" alt="Author">
+                                <small class="text-muted">Sarah Johnson • 3 days ago</small>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Posts Grid -->
+            <div class="col-md-4 mb-4">
+                <div class="card blog-post-card">
+                    <img src="/api/placeholder/800/600" class="card-img-top" alt="Blog Post">
+                    <div class="card-body">
+                        <span class="blog-category-badge">Ingredients</span>
+                        <h5 class="card-title mt-2">Understanding Hyaluronic Acid</h5>
+                        <p class="card-text">Learn why this powerhouse ingredient is a must-have in your hydration arsenal.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">2 weeks ago</small>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card blog-post-card">
+                    <img src="/api/placeholder/800/600" class="card-img-top" alt="Blog Post">
+                    <div class="card-body">
+                        <span class="blog-category-badge">Routine Tips</span>
+                        <h5 class="card-title mt-2">Morning vs Evening Skincare</h5>
+                        <p class="card-text">Discover the key differences and why both routines matter.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">1 month ago</small>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card blog-post-card">
+                    <img src="/api/placeholder/800/600" class="card-img-top" alt="Blog Post">
+                    <div class="card-body">
+                        <span class="blog-category-badge">Skin Health</span>
+                        <h5 class="card-title mt-2">Protecting Your Skin Barrier</h5>
+                        <p class="card-text">Everything you need to know about maintaining healthy skin.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">2 months ago</small>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div class="modal fade" id="createPostModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Blog Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Post Title</label>
+                        <input type="text" class="form-control" placeholder="Enter post title">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Category</label>
+                            <select class="form-select">
+                                <option>Skincare 101</option>
+                                <option>Ingredients</option>
+                                <option>Routine Tips</option>
+                                <option>Skin Health</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Featured Image</label>
+                            <input type="file" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Post Content</label>
+                        <textarea class="form-control" rows="6" placeholder="Write your blog post here..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Publish Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

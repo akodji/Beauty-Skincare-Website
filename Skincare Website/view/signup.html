@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Sign Up - Beauty & Skincare Manager</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F5 100%);
+            min-height: 100vh;
+        }
+        .auth-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .auth-sidebar {
+            background: linear-gradient(45deg, #FFB6C1, #FFC0CB);
+            border-radius: 20px 0 0 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ced4da;
+        }
+        .form-control:focus {
+            border-color: #FFB6C1;
+            box-shadow: 0 0 0 0.25rem rgba(255, 182, 193, 0.25);
+        }
+        .btn-auth {
+            background: linear-gradient(45deg, #FFB6C1, #FFC0CB);
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem 1.5rem;
+            color: white;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        .btn-auth:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .auth-tabs {
+            border-bottom: none;
+        }
+        .auth-tabs .nav-link {
+            color: #6c757d;
+            border: none;
+            padding: 1rem 2rem;
+        }
+        .auth-tabs .nav-link.active {
+            color: #FFB6C1;
+            background: none;
+            border-bottom: 2px solid #FFB6C1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="auth-container">
+                    <div class="row g-0">
+                        <!-- Sidebar -->
+                        <div class="col-lg-4 auth-sidebar">
+                            <h2 class="mb-4">Welcome to Your Beauty Journey</h2>
+                            <p class="mb-0">Create your account to start tracking your skincare routine.</p>
+                        </div>
+                        
+                        <!-- Signup Form -->
+                        <div class="col-lg-8 p-4">
+                            <h2 class="text-center mb-4">Sign Up</h2>
+                            
+                            <?php 
+                            if(isset($_GET['error'])) {
+                                echo '<div class="alert alert-danger">' . htmlspecialchars($_GET['error']) . '</div>';
+                            }
+                            ?>
+                            
+                            <form method="post" action="signup.php">
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" name="firstname" class="form-control" placeholder="Enter your first name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" name="lastname" class="form-control" placeholder="Enter your last name" required>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Username</label>
+                                    <input type="text" name="username" class="form-control" placeholder="Choose a username" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Email address</label>
+                                    <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" name="password" class="form-control" placeholder="Create a password" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Confirm Password</label>
+                                    <input type="password" name="confirm_password" class="form-control" placeholder="Confirm your password" required>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            I agree to the <a href="#" style="color: #FFB6C1;">Terms of Service</a> and <a href="#" style="color: #FFB6C1;">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" name="signup" class="btn btn-auth w-100 mb-4">Sign Up</button>
+                                
+                                <div class="text-center">
+                                    <p>Already have an account? <a href="login.html" style="color: #FFB6C1;">Login</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
